@@ -46,7 +46,7 @@ export const register = async(req:Request,res:Response)=>{
         const token = signToken(user);
 
         // response without sensitive data
-        const returNewUser: ReturnUser = {
+        const returnNewUser: ReturnUser = {
             firstName:user.name,
             lastName:user.lastName,
             email:user.email,
@@ -56,7 +56,7 @@ export const register = async(req:Request,res:Response)=>{
         };
 
         const response : AuthResponse = {
-            user:returNewUser,
+            user:returnNewUser,
             token
         }
         res.status(201).json(response);
@@ -65,4 +65,39 @@ export const register = async(req:Request,res:Response)=>{
     }
 }
 
-///login 
+///login
+
+export const login = async (req:Request,res:Response)=>{
+    try{
+        const {email,password} = req.body;
+        // find user by email
+        const user:IUser| null = await User.findOne({email});
+        if(!user){
+            return res.status(401).json({message:"Invalid email or password"});
+        }
+
+        const isPasswordValid = await user.comparePassword(password);
+        if(!isPasswordValid){
+            return res.status(401).json({message:"Invalid email or password"});
+        }
+
+        const token = signToken(user);
+
+        const returnUser: ReturnUser={
+            firstName:user.name,
+            lastName:user.lastName,
+            email:user.email,
+            role:user.role,
+            status:user.status,
+            establishment:user.establishment?.toString()
+        }
+
+        const response : AuthResponse = {
+            user:returnUser,
+            token
+        }
+        res.status(201).json(response);
+    }catch(err:unknown){
+        res.status(500).json({message:err});
+    }
+}

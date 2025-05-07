@@ -15,6 +15,7 @@ export interface IUser extends Document {
     createdAt?:Date;
     updatedAt?:Date;
     verified?:boolean;
+    comparePassword: (password: string) => Promise<boolean>;
 }
 
 const userSchema = new Schema<IUser>({
