@@ -1,0 +1,200 @@
+/* Medication Details Container */
+.medication-details-container {
+    padding: 2rem;
+    background: linear-gradient(135deg, #f8fcf8 0%, #f0f7f0 100%);
+    min-height: 100vh;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Title Styles */
+.medication-details-title {
+    color: #1a7361;
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid;
+    border-image: linear-gradient(90deg, #1a7361, #83c55c) 1;
+    position: relative;
+    display: inline-block;
+}
+
+.medication-details-title::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 40%;
+    height: 3px;
+    background: #1aaf5f;
+}
+
+/* Card Styles */
+.medication-card {
+    border-radius: 16px !important;
+    box-shadow:
+            0 4px 6px rgba(26, 175, 95, 0.08),
+            0 1px 3px rgba(26, 175, 95, 0.1) !important;
+    border: none !important;
+    transition:
+            transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+            box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+    background: white !important;
+    overflow: hidden;
+    position: relative;
+}
+
+.medication-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #1aaf5f, #83c55c);
+}
+
+.medication-card:hover {
+    transform: translateY(-4px);
+    box-shadow:
+            0 8px 20px rgba(26, 175, 95, 0.12),
+            0 4px 8px rgba(26, 175, 95, 0.1) !important;
+}
+
+/* Card Header Styles */
+.medication-card-header {
+    color: #1a7361 !important;
+    font-family: 'Space Mono', monospace !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.5px;
+    padding: 1.5rem 1.5rem 0.5rem !important;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+/* List Styles */
+.medication-list {
+    width: 100%;
+    padding: 0 !important;
+}
+
+.medication-list-item {
+    border-bottom: 1px solid rgba(131, 197, 92, 0.2) !important;
+    padding: 1.25rem 1.5rem !important;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.2s ease;
+}
+
+.medication-list-item:hover {
+    background-color: rgba(131, 197, 92, 0.05);
+}
+
+.medication-list-item:last-child {
+    border-bottom: none !important;
+}
+
+.medication-list-text {
+    font-family: 'Inter', sans-serif !important;
+}
+
+.medication-list-primary {
+    color: #1a2e3b !important;
+    font-weight: 600 !important;
+    margin-bottom: 0.25rem !important;
+    font-size: 0.95rem;
+    letter-spacing: -0.1px;
+}
+
+.medication-list-secondary {
+    color: #4a7c59 !important;
+    font-weight: 500 !important;
+    font-size: 0.85rem;
+    opacity: 0.9;
+}
+
+/* Pill Icon Styles */
+.medication-icon {
+    color: white;
+    background: linear-gradient(135deg, #1aaf5f, #83c55c);
+    border-radius: 12px;
+    padding: 0.65rem;
+    margin-right: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+    box-shadow: 0 2px 4px rgba(26, 175, 95, 0.2);
+}
+
+/* Status Badges */
+.medication-status {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-left: auto;
+}
+
+.medication-status.active {
+    background-color: rgba(26, 175, 95, 0.1);
+    color: #1aaf5f;
+}
+
+.medication-status.inactive {
+    background-color: rgba(255, 59, 48, 0.1);
+    color: #ff3b30;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .medication-details-container {
+        padding: 1.25rem;
+    }
+
+    .medication-details-title {
+        font-size: 1.5rem;
+    }
+
+    .medication-list-item {
+        padding: 1rem !important;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .medication-icon {
+        margin-right: 1rem;
+        margin-bottom: 0;
+        padding: 0.5rem;
+        min-width: 40px;
+        min-height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .medication-card {
+        border-radius: 12px !important;
+    }
+
+    .medication-list-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .medication-icon {
+        margin-bottom: 0.75rem;
+        margin-right: 0;
+        align-self: flex-start;
+    }
+
+    .medication-status {
+        margin-top: 0.5rem;
+        margin-left: 0;
+        align-self: flex-start;
+    }
+}

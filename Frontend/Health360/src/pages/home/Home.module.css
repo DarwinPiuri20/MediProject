@@ -1,0 +1,345 @@
+:root {
+    --color-primary: #00A4FF;
+    --color-bg: #FFFFFF;
+    --color-title: #0C0354;
+    --color-soft-bg: #D9D0D0;
+    --color-text: #1A1A1A;
+    --color-error: #E74C3C;
+
+    /* Effects */
+    --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
+    --shadow-primary: 0 4px 20px rgba(0, 164, 255, 0.25);
+    --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Contenedor principal */
+.home-container {
+    background: linear-gradient(180deg, var(--color-bg) 0%, #f9f9f9 100%);
+    padding: 60px 0;
+    overflow: hidden;
+}
+
+/* HERO */
+.home-hero {
+    text-align: center;
+    padding: 80px 0;
+    background-color: var(--color-soft-bg);
+    position: relative;
+    overflow: hidden;
+}
+
+.home-hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0,164,255,0.1) 0%, transparent 70%);
+    animation: rotateGradient 20s linear infinite;
+    z-index: 0;
+}
+
+@keyframes rotateGradient {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.home-hero-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.home-title {
+    color: var(--color-title);
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 4px rgba(12, 3, 84, 0.1);
+    animation: fadeInUp 0.8s ease;
+}
+
+.home-subtitle {
+    font-size: 1.8rem;
+    color: var(--color-text);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.4;
+    animation: fadeInUp 0.8s ease 0.2s both;
+}
+
+/* Imagen símbolo médico */
+.home-hero-image {
+    width: 120px;
+    height: auto;
+    margin-top: 30px;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+    animation: float 3s ease-in-out infinite;
+    transition: var(--transition);
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.home-hero-image:hover {
+    transform: scale(1.1) rotate(-5deg);
+    filter: drop-shadow(0 6px 12px rgba(0, 164, 255, 0.3));
+}
+
+/* SECCIONES */
+.home-section {
+    margin-top: 80px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Card informativa */
+.home-card {
+    margin-bottom: 40px;
+    background-color: var(--color-bg);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.home-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Texto general */
+.home-text {
+    font-size: 1.1rem;
+    color: var(--color-text);
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+/* Problema - imagen centrada */
+.home-problem-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.home-problem-image {
+    width: 280px;
+    max-width: 100%;
+    height: auto;
+    margin-top: 30px;
+    border-radius: 12px;
+    object-fit: contain;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    border: 2px solid var(--color-bg);
+}
+
+.home-problem-image:hover {
+    transform: scale(1.03);
+    box-shadow: var(--shadow-primary);
+}
+
+/* Títulos de sección */
+.home-section-title {
+    color: var(--color-title);
+    text-align: center;
+    margin-bottom: 50px;
+    font-weight: 700;
+    font-size: 2.2rem;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.home-section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--color-primary);
+    border-radius: 2px;
+}
+
+/* Imagen en FlipCard */
+.home-feature-image {
+    width: 100px;
+    height: auto;
+    margin-top: 20px;
+    object-fit: contain;
+    transition: var(--transition);
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.home-feature-image:hover {
+    transform: scale(1.1) rotate(5deg);
+    filter: drop-shadow(0 4px 8px rgba(0, 164, 255, 0.3));
+}
+
+.home-feature-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--color-title);
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Beneficios - centrado y separados */
+.home-benefits-list {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+.home-benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    max-width: 600px;
+    padding: 15px 25px;
+    background-color: var(--color-bg);
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: fadeInRight 0.5s ease forwards;
+    justify-content: flex-start;
+    width: 100%;
+    text-align: left;
+}
+
+@keyframes fadeInRight {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.home-benefit-item:nth-child(1) { animation-delay: 0.1s; }
+.home-benefit-item:nth-child(2) { animation-delay: 0.2s; }
+.home-benefit-item:nth-child(3) { animation-delay: 0.3s; }
+.home-benefit-item:nth-child(4) { animation-delay: 0.4s; }
+
+.home-benefit-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.home-benefit-bullet {
+    width: 14px;
+    height: 14px;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 4px rgba(0, 164, 255, 0.2);
+}
+
+/* CTA */
+.home-cta {
+    margin: 100px auto;
+    text-align: center;
+    background: linear-gradient(135deg, var(--color-title) 0%, #0a0250 100%);
+    padding: 80px 20px;
+    border-radius: 16px;
+    max-width: 1200px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+.home-cta::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0,164,255,0.15) 0%, transparent 70%);
+    z-index: 0;
+}
+
+.home-cta-title {
+    color: var(--color-bg);
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.home-cta-button {
+    background-color: var(--color-primary);
+    color: white;
+    font-weight: 700;
+    padding: 16px 40px;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    transition: var(--transition);
+    position: relative;
+    z-index: 1;
+    border: none;
+    box-shadow: 0 4px 0 #007acc, 0 6px 20px rgba(0, 164, 255, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.home-cta-button:hover {
+    background-color: #007acc;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #006bb3, 0 8px 25px rgba(0, 164, 255, 0.4);
+}
+
+.home-cta-button:active {
+    transform: translateY(1px);
+    box-shadow: 0 3px 0 #006bb3;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .home-hero-image,
+    .home-feature-image {
+        width: 100px;
+    }
+
+    .home-problem-image {
+        width: 200px;
+    }
+
+    .home-title {
+        font-size: 2.5rem;
+    }
+
+    .home-subtitle {
+        font-size: 1.4rem;
+    }
+
+    .home-section-title {
+        font-size: 1.8rem;
+    }
+
+    .home-cta-title {
+        font-size: 2rem;
+    }
+}
