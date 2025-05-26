@@ -1,0 +1,65 @@
+:root {
+    --color-primary: #00A4FF;
+    --color-dark: #0C0354;
+    --color-light: #FFFFFF;
+    --color-input: #D9D0D0;
+    --transition: all 0.3s ease;
+}
+
+/* Icono de usuario centrado */
+.avatar {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-light);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilo de los campos input */
+.input {
+    background-color: var(--color-input);
+    border-radius: 8px;
+}
+
+/* Icono dentro del input */
+.icon {
+    margin-right: 8px;
+    color: var(--color-dark);
+}
+
+/* Checkbox y link alineados */
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: var(--color-light);
+}
+
+/* Link de "forgot password" */
+.forgot {
+    cursor: pointer;
+    color: var(--color-light);
+    text-decoration: underline;
+}
+
+/* Botón de login */
+.loginButton {
+    background-color: var(--color-primary);
+    color: white;
+    font-weight: bold;
+    padding: 12px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition);
+    border: none;
+}
+
+.loginButton:hover {
+    background-color: #007acc;
+}

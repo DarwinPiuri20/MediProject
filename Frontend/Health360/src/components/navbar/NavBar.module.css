@@ -1,0 +1,226 @@
+:root {
+    --color-appbar-bg: #0C0354;     /* Azul profundo */
+    --color-hover: #D9D0D0;         /* Gris claro beige */
+    --color-primary: #00A4FF;       /* Azul brillante */
+    --color-error: #E74C3C;         /* Rojo alerta */
+    --color-text-light: #FFFFFF;    /* Blanco */
+    --color-text-dark: #1A1A1A;     /* Texto oscuro genérico */
+
+    /* Nuevas variables para efectos */
+    --shadow-primary: 0 4px 20px rgba(0, 164, 255, 0.3);
+    --shadow-appbar: 0 4px 30px rgba(12, 3, 84, 0.5);
+    --transition-transform: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* AppBar - Con efecto neumórfico y sombra dinámica */
+.med-appbar {
+    background-color: var(--color-appbar-bg) !important;
+    color: var(--color-text-light);
+    box-shadow: var(--shadow-appbar);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid rgba(0, 164, 255, 0.2);
+    transition: all 0.4s ease;
+}
+
+.med-appbar:hover {
+    box-shadow: 0 8px 40px rgba(12, 3, 84, 0.6);
+}
+
+/* Logo - Con efecto de flotación */
+.med-logo {
+    width: 32px;
+    height: 32px;
+    transition: all 0.5s ease;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.med-logo:hover {
+    transform: translateY(-3px) rotate(-5deg);
+    filter: drop-shadow(0 4px 8px rgba(0, 164, 255, 0.4));
+}
+
+/* Título - Con efecto de gradiente sutil */
+.med-appbar-title {
+    font-weight: bold;
+    color: var(--color-text-light);
+    text-shadow: 0 2px 8px rgba(0, 164, 255, 0.5);
+    position: relative;
+    display: inline-block;
+}
+
+.med-appbar-title::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.med-appbar:hover .med-appbar-title::after {
+    transform: scaleX(1);
+}
+
+/* Botones del menú principal - Efecto de expansión */
+.med-nav-button {
+    color: var(--color-text-light) !important;
+    font-weight: 500;
+    text-transform: none;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    padding: 8px 16px;
+    margin: 0 4px;
+    border-radius: 4px;
+}
+
+.med-nav-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(217, 208, 208, 0.3), transparent);
+    transition: all 0.6s ease;
+}
+
+.med-nav-button:hover {
+    background-color: var(--color-hover);
+    color: var(--color-appbar-bg);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.med-nav-button:hover::before {
+    left: 100%;
+}
+
+/* Botón de login - Efecto de pulsación 3D */
+.med-login-button {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    font-weight: 600;
+    text-transform: none;
+    transition: var(--transition-transform);
+    border-radius: 6px;
+    box-shadow: 0 4px 0 #0077cc, 0 6px 10px rgba(0, 164, 255, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.med-login-button:hover {
+    background-color: #0077cc;
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #005fa3, 0 3px 5px rgba(0, 164, 255, 0.4);
+}
+
+.med-login-button:active {
+    transform: translateY(4px);
+    box-shadow: 0 1px 0 #005fa3;
+}
+
+.med-login-button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: rotate(30deg);
+    transition: all 0.5s ease;
+}
+
+.med-login-button:hover::after {
+    left: 100%;
+}
+
+/* Menú móvil - Efecto de tarjeta flotante */
+.med-mobile-menu {
+    background-color: var(--color-text-light);
+    border-radius: 12px 12px 0 0;
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.med-mobile-menu::before {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 4px;
+    background-color: var(--color-hover);
+    margin: 8px auto;
+    border-radius: 2px;
+}
+
+/* Ítems del menú móvil - Efecto de deslizamiento */
+.med-mobile-menu-item {
+    color: var(--color-text-dark);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    padding: 12px 24px;
+    position: relative;
+}
+
+.med-mobile-menu-item:hover {
+    background-color: var(--color-hover);
+    padding-left: 28px;
+}
+
+.med-mobile-menu-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background-color: var(--color-primary);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.3s ease;
+}
+
+.med-mobile-menu-item:hover::before {
+    transform: scaleY(1);
+}
+
+/* Íconos del menú - Efecto de rebote */
+.med-menu-icon {
+    color: var(--color-primary);
+    transition: var(--transition-transform);
+}
+
+.med-mobile-menu-item:hover .med-menu-icon {
+    transform: scale(1.2) rotate(10deg);
+}
+
+/* Botón del menú hamburguesa - Animación de giro */
+.med-menu-button {
+    color: var(--color-text-light);
+    transition: transform 0.4s ease;
+}
+
+.med-menu-button:hover {
+    transform: rotate(90deg) scale(1.1);
+}
+
+/* Mensaje de error - Efecto de parpadeo suave */
+.med-error-message {
+    color: var(--color-error);
+    font-weight: bold;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
+}

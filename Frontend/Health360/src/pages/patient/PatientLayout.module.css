@@ -1,0 +1,35 @@
+
+:root {
+    --color-background: #F9F9F9;
+    --color-content: #FFFFFF;
+    --color-shadow: rgba(0, 0, 0, 0.08);
+    --layout-padding: 24px;
+}
+
+/* Contenedor principal que envuelve sidebar + contenido */
+.layoutContainer {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--color-background);
+}
+
+/* Área de contenido principal */
+.mainContent {
+    flex-grow: 1;
+    padding: var(--layout-padding);
+    margin-left: 40px; /* mismo ancho que el Drawer */
+    background-color: var(--color-background);
+    min-height: 100vh;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+/* Puedes añadir esto si usas un fondo más decorativo o secciones internas */
+.sectionCard {
+    background-color: var(--color-content);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px var(--color-shadow);
+    padding: 2px;
+    margin-bottom: 4px;
+}

@@ -1,22 +1,36 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Home from './pages/Home'
-import ResponsiveAppBar from './components/Navbar'
-import AboutUs from './pages/AboutUs'
-import Contact from './pages/Contact'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import Home from './pages/home/Home.jsx';
+import AboutUs from './pages/AboutUs';
+import Contact from './pages/Contact';
+import NavBar from './components/navbar/NavBar.jsx';
+import Login from './pages/login/Login.jsx'
+import PatientLayout from "./pages/patient/PatientLayout.jsx";
 
-
-function App() {
+function AppContent() {
+  const location = useLocation();
+  const showNavBar = ['/home', '/about-us', '/contact', '/'].includes(location.pathname.toLowerCase());
 
   return (
-    <BrowserRouter>
-    <ResponsiveAppBar/>
-      <Routes>
-        <Route path="/home" element={<Home />} />
-        <Route path="/about us" element={<AboutUs />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
-    </BrowserRouter>
-  )
+      <>
+        {showNavBar && <NavBar />}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/login" element={<Login />} />
+            <Route path='/patients' element={<PatientLayout/>}/>
+
+        </Routes>
+      </>
+  );
 }
 
-export default App
+function App() {
+  return (
+      <BrowserRouter>
+        <AppContent />
+      </BrowserRouter>
+  );
+}
+
+export default App;
