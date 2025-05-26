@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Home from './pages/home/Home.jsx';
-import AboutUs from './pages/AboutUs';
-import Contact from './pages/Contact';
+import AboutUs from './pages/aboutus/AboutUs.jsx';
+import Contact from './pages/contact/Contact.jsx';
 import NavBar from './components/navbar/NavBar.jsx';
 import Login from './pages/login/Login.jsx'
 import PatientLayout from "./pages/patient/PatientLayout.jsx";
